@@ -24,8 +24,3 @@ A arquitetura segue o fluxo:
 * Conta na AWS com permissões de IAM.
 * Repositório no Amazon ECR criado.
 * GitHub Secrets configurados (`AWS_ACCESS_KEY_ID` e `AWS_SECRET_ACCESS_KEY`).
-
-### Passos para Reproduzir
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
