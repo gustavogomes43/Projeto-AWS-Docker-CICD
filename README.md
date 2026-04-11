@@ -10,32 +10,21 @@ Este projeto implementa uma esteira de automação completa (CI/CD) para uma apl
 ![Arquitetura do Projeto](img/arquitetura-profissional.png)
 
 A arquitetura segue o fluxo:
-1. **GitHub**: Armazenamento do código-fonte e controle de versão.
-2. **GitHub Actions**: Pipeline de CI que realiza o build e push da imagem Docker.
-3. **Amazon ECR**: Registro privado para gerenciamento de imagens conteinerizadas.
-4. **Amazon EC2**: Servidor de produção rodando a aplicação via Docker.
+1. **GitHub**: Controle de versão e gatilho do pipeline.
+2. **GitHub Actions**: Automatiza o build e push da imagem Docker.
+3. **Amazon ECR**: Armazenamento seguro de imagens conteinerizadas.
+4. **Amazon EC2**: Servidor final onde a aplicação roda via Docker.
 
-## 🚀 Tecnologias Utilizadas
-* **Runtime:** Node.js
-* **Container:** Docker
-* **CI/CD:** GitHub Actions
-* **Cloud (AWS):** EC2, ECR, IAM Roles e Security Groups.
+## 🧠 Desafios e Soluções Técnicas (Troubleshooting)
 
-## 🧠 Lições Aprendidas e Troubleshooting
+### 1. Permissões do Docker no Linux
+* **Problema:** Erro de `Permission Denied` ao rodar comandos Docker.
+* **Solução:** Adicionei o `ec2-user` ao grupo `docker` (`sudo usermod -aG docker ec2-user`), permitindo a execução sem `sudo`, seguindo boas práticas de segurança.
 
-Durante o desenvolvimento, enfrentei desafios técnicos que consolidaram meu conhecimento em infraestrutura:
-
-### 1. Gestão de Permissões Docker (Linux Post-Install)
-Ao rodar o container na EC2, encontrei o erro de `Permission Denied` no socket do Docker. 
-* **Solução:** Em vez de usar `sudo` (má prática), adicionei o usuário `ec2-user` ao grupo `docker` e recarreguei as permissões. Isso garantiu o princípio de menor privilégio.
-
-### 2. Segurança com GitHub Secrets
-Para evitar a exposição de `Access Keys` da AWS, utilizei **GitHub Secrets**. Isso garante que credenciais sensíveis nunca fiquem expostas no código, seguindo os padrões de segurança da indústria.
-
-### 3. Conectividade de Rede (Security Groups)
-Configurei as regras de entrada (Inbound Rules) no Firewall da AWS para permitir tráfego na porta 80, realizando o mapeamento correto para a porta 8080 do container Docker.
+### 2. Pipeline de CI/CD Seguro
+* **Solução:** Utilizei **GitHub Secrets** para mascarar as credenciais da AWS, impedindo que chaves sensíveis fossem expostas no histórico do Git.
 
 ## 🛠️ Como Reproduzir
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/gustavogomes43/Projeto-AWS-Docker-CICD.git](https://github.com/gustavogomes43/Projeto-AWS-Docker-CICD.git)
+1. Clone o repositório: `git clone https://github.com/gustavogomes43/Projeto-AWS-Docker-CICD.git`
+2. Configure os Secrets na aba **Settings > Secrets and variables > Actions**.
+3. Realize um `git push` para a branch `main` e veja a automação na aba **Actions**.
