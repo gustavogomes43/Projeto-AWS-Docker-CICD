@@ -24,3 +24,9 @@ A arquitetura segue o fluxo:
 * Conta na AWS com permissões de IAM.
 * Repositório no Amazon ECR criado.
 * GitHub Secrets configurados (`AWS_ACCESS_KEY_ID` e `AWS_SECRET_ACCESS_KEY`).
+
+### 🚀 Como executar este projeto localmente
+
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/gustavogomes43/Projeto-AWS-Docker-CICD.git](https://github.com/gustavogomes43/Projeto-AWS-Docker-CICD.git)
