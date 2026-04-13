@@ -19,9 +19,11 @@ A infraestrutura foi projetada seguindo os princípios do AWS Well-Architected F
 ![Arquitetura AWS Docker CI/CD](img/2026-04-11_02-52.png)
 
 🔹 Runtime & Application
+
 Aplicação desenvolvida em Node.js, otimizada para operações assíncronas e alta performance em cenários distribuídos.
 
 🔹 Containerization Strategy
+
 Utilização de Docker para empacotamento da aplicação e suas dependências, garantindo portabilidade, isolamento e consistência entre ambientes (Build Once, Run Anywhere).
 
 🔹 CI/CD Orchestration
