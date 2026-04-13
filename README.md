@@ -14,14 +14,65 @@ O objetivo central foi implementar uma cultura de **"Build Once, Run Anywhere"**
 ---
 
 ## 🏗️ Arquitetura e Engenharia de Stack
-A infraestrutura foi desenhada seguindo as melhores práticas do **AWS Well-Architected Framework**:
+A infraestrutura foi projetada seguindo os princípios do AWS Well-Architected Framework, com foco em escalabilidade, segurança, confiabilidade e eficiência operacional.
 
-* **Runtime & Application:** Node.js, otimizado para alta performance e escalabilidade.
-* **Containerization Strategy:** Docker, utilizado para garantir o isolamento completo de dependências.
-* **Orquestração de CI/CD:** GitHub Actions, automatizando o pipeline de build, versionamento (Tagging) e publicação.
-* **Private Image Registry:** Amazon ECR, provendo um repositório seguro e de baixa latência.
-* **Compute Engine:** Amazon EC2 (Linux Optimized), configurada para execução de workloads em containers.
-* **Identity & Access Management (IAM):** Implementação de Roles granulares para acesso Cross-Account seguro.
+![Arquitetura AWS Docker CI/CD](img/arquitetura-eks-scorpion.png)
+
+🔹 Runtime & Application
+Aplicação desenvolvida em Node.js, otimizada para operações assíncronas e alta performance em cenários distribuídos.
+
+🔹 Containerization Strategy
+Utilização de Docker para empacotamento da aplicação e suas dependências, garantindo portabilidade, isolamento e consistência entre ambientes (Build Once, Run Anywhere).
+
+🔹 CI/CD Orchestration
+
+Orquestração do pipeline através do GitHub Actions, responsável por:
+
+* Build automatizado da aplicação
+* Criação e versionamento de imagens Docker (tagging)
+* Push das imagens para o repositório
+* Injeção segura de variáveis via GitHub Secrets
+
+🔹 Container Registry
+
+Uso do Amazon Elastic Container Registry (ECR) como repositório privado para armazenamento de imagens Docker, com:
+
+* Imutabilidade de imagens
+* Baixa latência para consumo dentro da AWS
+* Controle de acesso via IAM e Resource-Based Policies
+
+🔹 Compute Layer
+
+Execução dos containers em Amazon EC2 Auto Scaling Group (ASG) utilizando Amazon Linux 2 (Optimized AMI), garantindo:
+
+* Alta disponibilidade
+* Escalabilidade automática baseada em demanda
+* Execução isolada via Docker Engine (Container Runtime)
+
+🔹 Identity & Access Management (IAM)
+
+Implementação de IAM Roles com políticas granulares seguindo o princípio de:
+
+* Least Privilege (Princípio do Menor Privilégio)
+* Controle seguro de acesso entre serviços (EC2 ↔ ECR)
+* Suporte a cenários de Cross-Account Access, quando necessário
+
+🔹 Governance & Security
+
+Camada de governança aplicada com:
+
+* IAM Roles seguras por workload
+* Policies baseadas em recursos (ECR)
+* Controle de acesso centralizado
+* Isolamento de responsabilidades (DevOps / Infra / Runtime)
+
+🔹 FinOps (Cloud Financial Management)
+
+Adoção de práticas de FinOps para otimização de custos, incluindo:
+
+* Uso de EC2 Spot Instances quando aplicável
+* Estratégias de right-sizing
+* Monitoramento de consumo e eficiência de recursos
 
 ---
 
