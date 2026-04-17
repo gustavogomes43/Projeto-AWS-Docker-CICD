@@ -80,7 +80,7 @@ Adoção de práticas de FinOps para otimização de custos, incluindo:
 
 ## 🧠 Deep Dive: Desafios Técnicos e Troubleshooting (Diferencial)
 
-Enfrentei e resolvi desafios reais de infraestrutura, demonstrando capacidade analítica em cenários de crise:
+Enfrentei e resolvi desafios reais de infraestrutura:
 
 ### 1. Governança de Acesso Cross-Resource (IAM Deep Dive)
 * **Desafio:** Falhas de `Access Denied` durante o `docker pull` na instância EC2, apesar das credenciais básicas.
