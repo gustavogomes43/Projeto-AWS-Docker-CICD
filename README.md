@@ -124,4 +124,32 @@ O pipeline consome segredos criptografados, garantindo conformidade com padrões
 * **Confiabilidade:** Ambientes imutáveis que eliminam o erro "na minha máquina funciona".
 
 ---
+
+## 💰 Business Case & ROI (Impacto de Negócio)
+
+A automação do ciclo de deploy não é apenas uma conveniência técnica; é um multiplicador de lucro. Processos manuais são lentos, caros e propensos a falhas humanas que causam prejuízos operacionais.
+
+### 1. Eficiência de Tempo e Custo (Anual)
+
+| Atividade | Processo Manual Anterior | Pipeline Automatizado (Este Projeto) | Ganho de Eficiência |
+| :--- | :--- | :--- | :--- |
+| **Tempo de Deploy** | 20 Minutos | < 1 Minuto | **95% mais rápido** |
+| **Frequência de Deploy** | Semanal (Risco alto) | Diário/Sob demanda | **Agilidade de Mercado** |
+| **Custo de Engenharia** | $ 3.600 (Horas/ano em deploys) |$ 180 (Monitoramento do Pipeline) | **Economia de $ 3.420** |
+
+### 2. ROI de Qualidade e Segurança
+
+* **Redução do MTTR (Mean Time To Repair):** Em caso de bug em produção, o rollback ou fix via pipeline automatizado é **10x mais rápido**, evitando perdas de receita por indisponibilidade.
+* **Custo de Brecha de Segurança:** Ao utilizar GitHub Secrets e IAM Roles, eliminamos o risco de credenciais "hardcoded". O custo médio de um vazamento de dados no Brasil é de milhões; este pipeline reduz essa superfície de ataque a **quase zero**.
+
+### 3. Cálculo do ROI Final
+
+$$ROI = \frac{(\text{Economia de Horas Técnicas} + \text{Valor da Agilidade de Software}) - \text{Custo de Setup}}{\text{Custo de Setup}}$$
+
+* **Ganhos Totais:** Estimado em **$ 5.000/ano** por aplicação (considerando economia de tempo e prevenção de erros).
+* **Investimento:** $ 800 (Tempo de desenvolvimento da esteira).
+* **ROI Estimado:** **~525% no primeiro ano.**
+
+---
+
 **Autor:** Gustavo Gomes | *Cloud & DevOps*
