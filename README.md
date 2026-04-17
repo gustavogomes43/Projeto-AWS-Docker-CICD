@@ -124,4 +124,4 @@ O pipeline consome segredos criptografados, garantindo conformidade com padrões
 * **Confiabilidade:** Ambientes imutáveis que eliminam o erro "na minha máquina funciona".
 
 ---
-**Autor:** Gustavo Gomes | *Cloud & DevOps Engineer Enthusiast*
+**Autor:** Gustavo Gomes | *Cloud & DevOps*
