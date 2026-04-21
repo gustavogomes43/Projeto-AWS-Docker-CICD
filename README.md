@@ -2,7 +2,7 @@
 
 > Pipeline de entrega contínua de nível corporativo para aplicações Node.js — do commit ao container em produção em menos de 60 segundos.
 
-[![CI/CD Status](https://github.com/seu-usuario/seu-repositorio/actions/workflows/deploy.yml/badge.svg)](https://github.com/seu-usuario/seu-repositorio/actions)
+[![CI/CD Status](https://github.com/gustavogomes43/projeto-aws-docker-ci-cd/actions/workflows/deploy.yml/badge.svg)](https://github.com/gustavogomes43/projeto-aws-docker-ci-cd/actions)
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
 [![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat-square&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
 [![GitHub Actions](https://img.shields.io/badge/github%20actions-%232088FF.svg?style=flat-square&logo=github-actions&logoColor=white)](https://github.com/features/actions)
@@ -157,7 +157,7 @@ Regra de segurança da instância EC2 expunha apenas a porta 80. A aplicação N
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/gustavogomes43/projeto-aws-docker-ci-cd.git
 cd seu-repositorio
 
 # Build da imagem
