@@ -129,6 +129,26 @@ A separação em stages garante que ferramentas de desenvolvimento, cache do npm
 | Imagens | Tags imutáveis no ECR — uma tag = um artefato exato |
 | Vulnerabilidades | Scan automático com Trivy a cada build |
 
+### Evolução planejada: substituir chaves estáticas por OIDC
+
+A autenticação atual usa `AWS_ACCESS_KEY_ID` e `AWS_SECRET_ACCESS_KEY` armazenadas como GitHub Secrets. Essa abordagem é segura quando as chaves têm escopo mínimo de permissão — o que foi implementado aqui.
+
+A próxima evolução natural é adotar **OpenID Connect (OIDC)**, que elimina completamente a existência de chaves estáticas:
+
+```yaml
+# Como ficaria o workflow com OIDC
+- name: Configure AWS Credentials (OIDC)
+  uses: aws-actions/configure-aws-credentials@v4
+  with:
+    role-to-assume: arn:aws:iam::ACCOUNT_ID:role/github-actions-role
+    aws-region: us-east-1
+    # Sem aws-access-key-id nem aws-secret-access-key
+```
+
+Com OIDC, o GitHub Actions solicita um token temporário diretamente à AWS no momento do run. Esse token expira em minutos e nunca é armazenado em lugar algum — superfície de ataque de credenciais reduzida a zero.
+
+A migração exige criar um Identity Provider do GitHub no IAM e ajustar a trust policy da IAM Role. Foi uma decisão deliberada não implementar agora para manter o projeto focado no pipeline em si, mas está documentada como próximo passo de hardening.
+
 ---
 
 ## Desafios técnicos resolvidos
